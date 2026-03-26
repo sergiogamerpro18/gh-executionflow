@@ -14,7 +14,7 @@ jobs:
         # exclude windows-latest for node-version 12
         exclude:
           - node-version: 12
-          operating-system: windows-latest
+            operating-system: windows-latest
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get Code
