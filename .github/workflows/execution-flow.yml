@@ -36,7 +36,7 @@ jobs:
         id: run-tests
         run: npm run test
       - name: Upload test report
-        if: failure() && steps.run-tests.outcome == 'failure'
+        if: ${{ failure() && steps.run-tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v6
         with:
           name: test-report
@@ -76,7 +76,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
-    if: failure()
+    if: ${{ failure() }}
     runs-on: ubuntu-latest
     steps:
       - name: Output Information
